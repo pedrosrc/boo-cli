@@ -50,7 +50,7 @@ ruby boo.rb "liste as pastas do diretório /tmp"
 
 2. Criando um alias para facilitar no terminal:
 ```
-alias boo="ruby /caminho/para/boo-cli/boo.rb"
+alias boo="ruby /caminho/boo-cli/boo.rb"
 source ~/.bashrc   # ou ~/.zshrc
 boo "commite todo o código com uma mensagem útil"
 ```
