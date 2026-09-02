@@ -9,7 +9,7 @@ module Boo
 
     def parse_command(user_input)
       prompt = build_prompt(user_input)
-      command = call_gemini(prompt)
+      command = call_model(prompt)
       {
         "command"     => command.strip,
         "description" => "Executar: #{user_input}"
@@ -37,11 +37,11 @@ module Boo
       end
     end
 
-    def call_gemini(prompt)
+    def call_model(prompt)
       response = @chat.ask(prompt)
       response.content
     rescue => e
-      raise Boo::Error, "Erro ao chamar Gemini: #{e.message}"
+      raise Boo::Error, "Erro ao chamar o modelo: #{e.message}"
     end
 
     def build_prompt(user_input)

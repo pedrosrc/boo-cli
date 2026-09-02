@@ -8,13 +8,13 @@ if ARGV.empty?
 end
 
 begin
-  client = Boo::Config.setup_gemini
+  client = Boo::Config.setup
   cli = Boo::CLI.new(client)
 
   command_data = cli.parse_command(ARGV.join(" "))
   cli.execute_safely(command_data["command"], command_data["description"])
 rescue JSON::ParserError => e
-  warn "❌ Erro ao interpretar resposta do Gemini: #{e.message}"
+  warn "❌ Erro ao interpretar resposta do modelo: #{e.message}"
   exit 1
 rescue => e
   warn "❌ Erro inesperado: #{e.message}"
